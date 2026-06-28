@@ -5,6 +5,12 @@ import urllib.parse
 import concurrent.futures
 
 class handler(BaseHTTPRequestHandler):
+
+    def do_GET(self):
+        self._send_json(200, {
+            "message": "API is running."
+        })
+
     def do_POST(self):
         try:
             content_length = int(self.headers.get('Content-Length', 0))
